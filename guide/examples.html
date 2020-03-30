@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Examples | Foolbox</title>
+    <meta name="description" content="A Python toolbox to create adversarial examples that fool neural networks in PyTorch, TensorFlow, and JAX">
+    <meta name="generator" content="VuePress 1.4.0">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.1ba3ec51.css" as="style"><link rel="preload" href="/assets/js/app.32a0580e.js" as="script"><link rel="preload" href="/assets/js/2.4b6a6767.js" as="script"><link rel="preload" href="/assets/js/9.a746414e.js" as="script"><link rel="prefetch" href="/assets/js/10.cb37cd81.js"><link rel="prefetch" href="/assets/js/11.4c337c8c.js"><link rel="prefetch" href="/assets/js/3.4bf61ec9.js"><link rel="prefetch" href="/assets/js/4.77d72146.js"><link rel="prefetch" href="/assets/js/5.9e8c600d.js"><link rel="prefetch" href="/assets/js/6.5ae8c47a.js"><link rel="prefetch" href="/assets/js/7.2f4e307c.js"><link rel="prefetch" href="/assets/js/8.f88a94eb.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.1ba3ec51.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Foolbox</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/guide/" class="nav-link router-link-active">
+  Guide
+</a></div><div class="nav-item"><a href="https://foolbox.readthedocs.io/en/stable/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  API
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://github.com/bethgelab/foolbox" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/guide/" class="nav-link router-link-active">
+  Guide
+</a></div><div class="nav-item"><a href="https://foolbox.readthedocs.io/en/stable/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  API
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://github.com/bethgelab/foolbox" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Guide</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/guide/" class="sidebar-link">Introduction</a></li><li><a href="/guide/getting-started.html" class="sidebar-link">Getting Started</a></li><li><a href="/guide/examples.html" class="active sidebar-link">Examples</a></li><li><a href="/guide/development.html" class="sidebar-link">Development</a></li><li><a href="/guide/adding_attacks.html" class="sidebar-link">Adding Adversarial Attacks</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="examples"><a href="#examples" class="header-anchor">#</a> Examples 🎉</h1> <div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>More examples can be found in the <a href="https://github.com/bethgelab/foolbox/tree/master/examples" target="_blank" rel="noopener noreferrer">examples folder<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>.</p></div> <div class="language-py extra-class"><pre class="language-py"><code><span class="token comment">#!/usr/bin/env python3</span>
+<span class="token keyword">import</span> torchvision<span class="token punctuation">.</span>models <span class="token keyword">as</span> models
+<span class="token keyword">import</span> eagerpy <span class="token keyword">as</span> ep
+<span class="token keyword">from</span> foolbox <span class="token keyword">import</span> PyTorchModel<span class="token punctuation">,</span> accuracy<span class="token punctuation">,</span> samples
+<span class="token keyword">import</span> foolbox<span class="token punctuation">.</span>attacks <span class="token keyword">as</span> fa
+<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">&quot;__main__&quot;</span><span class="token punctuation">:</span>
+    <span class="token comment"># instantiate a model</span>
+    model <span class="token operator">=</span> models<span class="token punctuation">.</span>resnet18<span class="token punctuation">(</span>pretrained<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token builtin">eval</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    preprocessing <span class="token operator">=</span> <span class="token builtin">dict</span><span class="token punctuation">(</span>mean<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">0.485</span><span class="token punctuation">,</span> <span class="token number">0.456</span><span class="token punctuation">,</span> <span class="token number">0.406</span><span class="token punctuation">]</span><span class="token punctuation">,</span> std<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">0.229</span><span class="token punctuation">,</span> <span class="token number">0.224</span><span class="token punctuation">,</span> <span class="token number">0.225</span><span class="token punctuation">]</span><span class="token punctuation">,</span> axis<span class="token operator">=</span><span class="token operator">-</span><span class="token number">3</span><span class="token punctuation">)</span>
+    fmodel <span class="token operator">=</span> PyTorchModel<span class="token punctuation">(</span>model<span class="token punctuation">,</span> bounds<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> preprocessing<span class="token operator">=</span>preprocessing<span class="token punctuation">)</span>
+
+    <span class="token comment"># get data and test the model</span>
+    <span class="token comment"># wrapping the tensors with ep.astensors is optional, but it allows</span>
+    <span class="token comment"># us to work with EagerPy tensors in the following</span>
+    images<span class="token punctuation">,</span> labels <span class="token operator">=</span> ep<span class="token punctuation">.</span>astensors<span class="token punctuation">(</span><span class="token operator">*</span>samples<span class="token punctuation">(</span>fmodel<span class="token punctuation">,</span> dataset<span class="token operator">=</span><span class="token string">&quot;imagenet&quot;</span><span class="token punctuation">,</span> batchsize<span class="token operator">=</span><span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&quot;accuracy&quot;</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>accuracy<span class="token punctuation">(</span>fmodel<span class="token punctuation">,</span> images<span class="token punctuation">,</span> labels<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&quot;&quot;</span><span class="token punctuation">)</span>
+
+    attacks <span class="token operator">=</span> <span class="token punctuation">[</span>
+        fa<span class="token punctuation">.</span>FGSM<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        fa<span class="token punctuation">.</span>LinfPGD<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        fa<span class="token punctuation">.</span>LinfBasicIterativeAttack<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        fa<span class="token punctuation">.</span>LinfAdditiveUniformNoiseAttack<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        fa<span class="token punctuation">.</span>LinfDeepFoolAttack<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span>
+
+    epsilons <span class="token operator">=</span> <span class="token punctuation">[</span>
+        <span class="token number">0.0</span><span class="token punctuation">,</span>
+        <span class="token number">0.0005</span><span class="token punctuation">,</span>
+        <span class="token number">0.001</span><span class="token punctuation">,</span>
+        <span class="token number">0.0015</span><span class="token punctuation">,</span>
+        <span class="token number">0.002</span><span class="token punctuation">,</span>
+        <span class="token number">0.003</span><span class="token punctuation">,</span>
+        <span class="token number">0.005</span><span class="token punctuation">,</span>
+        <span class="token number">0.01</span><span class="token punctuation">,</span>
+        <span class="token number">0.02</span><span class="token punctuation">,</span>
+        <span class="token number">0.03</span><span class="token punctuation">,</span>
+        <span class="token number">0.1</span><span class="token punctuation">,</span>
+        <span class="token number">0.3</span><span class="token punctuation">,</span>
+        <span class="token number">0.5</span><span class="token punctuation">,</span>
+        <span class="token number">1.0</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&quot;epsilons&quot;</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>epsilons<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&quot;&quot;</span><span class="token punctuation">)</span>
+
+    attack_success <span class="token operator">=</span> np<span class="token punctuation">.</span>zeros<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>attacks<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token builtin">len</span><span class="token punctuation">(</span>epsilons<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token builtin">len</span><span class="token punctuation">(</span>images<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> dtype<span class="token operator">=</span>np<span class="token punctuation">.</span><span class="token builtin">bool</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> i<span class="token punctuation">,</span> attack <span class="token keyword">in</span> <span class="token builtin">enumerate</span><span class="token punctuation">(</span>attacks<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        _<span class="token punctuation">,</span> _<span class="token punctuation">,</span> success <span class="token operator">=</span> attack<span class="token punctuation">(</span>fmodel<span class="token punctuation">,</span> images<span class="token punctuation">,</span> labels<span class="token punctuation">,</span> epsilons<span class="token operator">=</span>epsilons<span class="token punctuation">)</span>
+        <span class="token keyword">assert</span> success<span class="token punctuation">.</span>shape <span class="token operator">==</span> <span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>epsilons<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token builtin">len</span><span class="token punctuation">(</span>images<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        success_ <span class="token operator">=</span> success<span class="token punctuation">.</span>numpy<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">assert</span> success_<span class="token punctuation">.</span>dtype <span class="token operator">==</span> np<span class="token punctuation">.</span><span class="token builtin">bool</span>
+        attack_success<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> success_
+        <span class="token keyword">print</span><span class="token punctuation">(</span>attack<span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&quot;  &quot;</span><span class="token punctuation">,</span> <span class="token number">1.0</span> <span class="token operator">-</span> success_<span class="token punctuation">.</span>mean<span class="token punctuation">(</span>axis<span class="token operator">=</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token builtin">round</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+    robust_accuracy <span class="token operator">=</span> <span class="token number">1.0</span> <span class="token operator">-</span> attack_success<span class="token punctuation">.</span><span class="token builtin">max</span><span class="token punctuation">(</span>axis<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">.</span>mean<span class="token punctuation">(</span>axis<span class="token operator">=</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&quot;&quot;</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&quot;-&quot;</span> <span class="token operator">*</span> <span class="token number">79</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&quot;&quot;</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&quot;worst case (best attack per-sample)&quot;</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&quot;  &quot;</span><span class="token punctuation">,</span> robust_accuracy<span class="token punctuation">.</span><span class="token builtin">round</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/guide/getting-started.html" class="prev">
+        Getting Started
+      </a></span> <span class="next"><a href="/guide/development.html">
+        Development
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.32a0580e.js" defer></script><script src="/assets/js/2.4b6a6767.js" defer></script><script src="/assets/js/9.a746414e.js" defer></script>
+  </body>
+</html>
